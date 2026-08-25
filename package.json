@@ -1,0 +1,53 @@
+{
+  "name": "rootflare",
+  "version": "1.0.0-rc2",
+  "description": "Map 1+N domains to local ports through a single Cloudflare Tunnel",
+  "bin": {
+    "rootflare": "dist/rootflare.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE",
+    "banner.svg"
+  ],
+  "scripts": {
+    "build": "esbuild bin/rootflare.js --bundle --platform=node --target=node18 --format=cjs --minify --outfile=dist/rootflare.js",
+    "prepare": "npm run build",
+    "test": "node --test 'test/*.test.js'",
+    "test:integration": "node --test 'test/integration/*.test.js'",
+    "lint": "standard --fix | snazzy && knip"
+  },
+  "keywords": [
+    "cloudflare",
+    "cloudflared",
+    "tunnel",
+    "reverse-tunnel",
+    "localhost",
+    "ngrok",
+    "cli"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daggieblanqx/rootflare.git"
+  },
+  "homepage": "https://github.com/daggieblanqx/rootflare",
+  "author": {
+    "name": "Daggie Blanqx",
+    "url": "https://github.com/daggieblanqx"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "knip": "5.0.0",
+    "snazzy": "9.0.0",
+    "standard": "17.1.0",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "pino": "10.3.1"
+  }
+}
