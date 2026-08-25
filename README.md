@@ -22,18 +22,19 @@ That's all. The `start` is idempotent — re-run it anytime to make sure the dom
 Your domains, your URLs.
 No random subdomains, no quotas, and no "Upgrade" screen.
 
+## What it does
+
+Running `start` installs `cloudflared` if needed, creates the tunnel, routes your DNS, starts the daemon, and confirms the domain is live. Every step is also its own command below.
+
 ## Prerequisites
 
-1. **A Cloudflare account with your own domain.** Your domain's zone must be added to
-  Cloudflare and use Cloudflare's nameservers — that's how Cloudflare verifies you own
-  it. Tunnels serve _your_ domains: there are no throwaway URLs like some tunnel services.
-2. **Your app running locally** on the port you map (e.g. `localhost:3000` serving a [NextJS app](http://nextjs.org/))
+1. **Node ≥ 18.**
+2. **A Cloudflare account with your own domain.** Your domain's zone must be added to
+   Cloudflare and use Cloudflare's nameservers — that's how Cloudflare verifies you own
+   it. Tunnels serve _your_ domains: there are no throwaway URLs like some tunnel services.
+3. **Your app running locally** on the port you map (e.g. `localhost:3000` serving a [NextJS app](http://nextjs.org/)).
 
-# Advanced usage
-
-### Under the hood
-
-rootflare installs `cloudflared` if needed, creates the tunnel, routes your DNS, starts the daemon, and confirms the domain is live.
+`start` installs `cloudflared` for you and pauses for `cloudflared tunnel login` if you're not logged in yet.
 
 ## Commands
 
@@ -50,8 +51,7 @@ rootflare installs `cloudflared` if needed, creates the tunnel, routes your DNS,
 | `logs`                                 | Live-tail `tunnel.log`, colorized                                         |
 | `doctor`                               | Preflight checks + install hints                                          |
 
-`start` is the one-click; every step is also its own command. Bare `rootflare` (or
-`--help`) prints help with the banner. Exit codes: `0` ok, `1` runtime error, `2` usage.
+Bare `rootflare` (or `--help`) prints help with the banner. Exit codes: `0` ok, `1` runtime error, `2` usage.
 
 ## The map file
 
