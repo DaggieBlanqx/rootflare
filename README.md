@@ -29,9 +29,7 @@ Running `start` installs `cloudflared` if needed, creates the tunnel, routes you
 ## Prerequisites
 
 1. **Node ≥ 18.**
-2. **A Cloudflare account with your own domain.** Your domain's zone must be added to
-   Cloudflare and use Cloudflare's nameservers — that's how Cloudflare verifies you own
-   it. Tunnels serve _your_ domains: there are no throwaway URLs like some tunnel services.
+2. **A Cloudflare account with your own domain already linked.** Tunnels serve _your own_ domains: there are no throwaway URLs like some tunnel services. Buy a domain, [then link it to cloudflare as in this video: https://youtu.be/QzC_usc5Pgs](https://youtu.be/QzC_usc5Pgs).
 3. **Your app running locally** on the port you map (e.g. `localhost:3000` serving a [NextJS app](http://nextjs.org/)).
 
 `start` installs `cloudflared` for you and pauses for `cloudflared tunnel login` if you're not logged in yet.
