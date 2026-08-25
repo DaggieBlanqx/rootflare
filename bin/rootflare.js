@@ -5,6 +5,7 @@ import { getLogger } from '../lib/logger.js'
 import { commands, UsageError } from '../lib/commands.js'
 import { createRequire } from 'node:module'
 
+// import.meta.url is empty in the CJS bundle — fall back to __filename there.
 const require = createRequire(typeof import.meta.url === 'string' ? import.meta.url : __filename)
 const VERSION = require('../package.json').version
 
