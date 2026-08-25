@@ -1,9 +1,9 @@
 {
   "name": "rootflare",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Map 1+N domains to local ports through a single Cloudflare Tunnel",
   "bin": {
-    "rootflare": "dist/rootflare.js"
+    "rootflare": "dist/rootflare.cjs"
   },
   "engines": {
     "node": ">=18"
@@ -15,7 +15,7 @@
     "public/banner.svg"
   ],
   "scripts": {
-    "build": "esbuild bin/rootflare.js --bundle --platform=node --target=node18 --format=cjs --minify --outfile=dist/rootflare.js",
+    "build": "esbuild bin/rootflare.js --bundle --platform=node --target=node18 --format=cjs --minify --outfile=dist/rootflare.cjs",
     "prepare": "npm run build",
     "test": "node --test 'test/*.test.js'",
     "test:integration": "node --test 'test/integration/*.test.js'",
@@ -49,5 +49,6 @@
   },
   "dependencies": {
     "pino": "10.3.1"
-  }
+  },
+  "type": "module"
 }

@@ -1,8 +1,9 @@
-'use strict'
-const { test } = require('node:test')
-const assert = require('node:assert')
-const path = require('node:path')
-const { spawnSync } = require('node:child_process')
+import { test } from 'node:test'
+import assert from 'node:assert'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { spawnSync } from 'node:child_process'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const BIN = path.join(__dirname, '..', 'bin', 'rootflare.js')
 

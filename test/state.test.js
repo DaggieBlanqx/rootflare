@@ -1,13 +1,13 @@
-'use strict'
-const { test, beforeEach, afterEach } = require('node:test')
-const assert = require('node:assert')
-const fs = require('node:fs')
-const os = require('node:os')
-const path = require('node:path')
-const {
+import { test, beforeEach, afterEach } from 'node:test'
+import assert from 'node:assert'
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
+import {
   parseLine,
   parseSpec,
   parseMap,
+  mapError,
   readMap,
   writeMap,
   init,
@@ -16,7 +16,7 @@ const {
   paths,
   getTunnel,
   setTunnel
-} = require('../lib/state')
+} from '../lib/state.js'
 
 let homeDir
 
@@ -196,7 +196,6 @@ test('extra: path rule and plain rule on the same host coexist', () => {
 })
 
 test('extra: mapError formats parse errors with line numbers', () => {
-  const { parseMap, mapError } = require('../lib/state')
   const { errors } = parseMap('app.example.com:3000\nbad line\n')
   assert.strictEqual(errors.length, 1)
   const message = mapError(errors)

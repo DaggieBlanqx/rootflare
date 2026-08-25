@@ -1,7 +1,6 @@
-'use strict'
-const { test } = require('node:test')
-const assert = require('node:assert')
-const { table, colorize, banner, spinnerFrames, spinner, countdown } = require('../lib/ui')
+import { test } from 'node:test'
+import assert from 'node:assert'
+import { table, colorize, banner, spinnerFrames, spinner, countdown } from '../lib/ui.js'
 
 test('table renders correct borders and column padding', () => {
   const out = table(

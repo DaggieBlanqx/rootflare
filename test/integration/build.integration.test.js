@@ -1,17 +1,18 @@
-'use strict'
-const { test } = require('node:test')
-const assert = require('node:assert')
-const fs = require('node:fs')
-const path = require('node:path')
-const { spawnSync } = require('node:child_process')
+import { test } from 'node:test'
+import assert from 'node:assert'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { spawnSync } from 'node:child_process'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const ROOT = path.join(__dirname, '..', '..')
-const DIST = path.join(ROOT, 'dist', 'rootflare.js')
+const DIST = path.join(ROOT, 'dist', 'rootflare.cjs')
 
 test('build: esbuild bundles + minifies a working dist/rootflare.js', () => {
   const build = spawnSync('npm', ['run', 'build'], { encoding: 'utf8', cwd: ROOT })
   assert.strictEqual(build.status, 0, build.stderr || build.stdout)
-  assert.ok(fs.existsSync(DIST), 'dist/rootflare.js produced')
+  assert.ok(fs.existsSync(DIST), 'dist/rootflare.cjs produced')
 
   const version = spawnSync(process.execPath, [DIST, '--version'], { encoding: 'utf8' })
   assert.strictEqual(version.status, 0)

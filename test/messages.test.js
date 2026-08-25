@@ -1,9 +1,10 @@
-'use strict'
-const { test } = require('node:test')
-const assert = require('node:assert')
-const fs = require('node:fs')
-const path = require('node:path')
-const { translate, messages } = require('../lib/messages')
+import { test } from 'node:test'
+import assert from 'node:assert'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { translate, messages } from '../lib/messages.js'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 test('t interpolates parameters into the template', () => {
   assert.strictEqual(translate('parse.invalidPort', { port: '70000', min: 1, max: 65535 }), 'invalid port \'70000\' (1-65535)')

@@ -1,10 +1,9 @@
-'use strict'
-const { test } = require('node:test')
-const assert = require('node:assert')
-const fs = require('node:fs')
-const os = require('node:os')
-const path = require('node:path')
-const { colorizeLogLine, formatPinoLine, tailFrom } = require('../lib/live')
+import { test } from 'node:test'
+import assert from 'node:assert'
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
+import { colorizeLogLine, formatPinoLine, tailFrom } from '../lib/live.js'
 
 const ESC = String.fromCharCode(27)
 const ansi = new RegExp(`${ESC}\\[[0-9;]*m`, 'g')

@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-'use strict'
+import { banner, cross } from '../lib/ui.js'
+import { translate } from '../lib/messages.js'
+import { getLogger } from '../lib/logger.js'
+import { commands, UsageError } from '../lib/commands.js'
+import { createRequire } from 'node:module'
 
-const { banner, cross } = require('../lib/ui')
-const { translate } = require('../lib/messages')
-const { getLogger } = require('../lib/logger')
-const { commands, UsageError } = require('../lib/commands')
-
+const require = createRequire(typeof import.meta.url === 'string' ? import.meta.url : __filename)
 const VERSION = require('../package.json').version
 
 function printHelp () {

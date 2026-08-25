@@ -1,11 +1,10 @@
-'use strict'
-const { test, beforeEach, afterEach } = require('node:test')
-const assert = require('node:assert')
-const fs = require('node:fs')
-const os = require('node:os')
-const path = require('node:path')
-const { runChecks, installPlan } = require('../lib/doctor')
-const { init, setTunnel, paths } = require('../lib/state')
+import { test, beforeEach, afterEach } from 'node:test'
+import assert from 'node:assert'
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
+import { runChecks, installPlan } from '../lib/doctor.js'
+import { init, setTunnel, paths } from '../lib/state.js'
 
 let homeDir
 let cfHome

@@ -1,11 +1,10 @@
-'use strict'
-const { test, beforeEach, afterEach } = require('node:test')
-const assert = require('node:assert')
-const fs = require('node:fs')
-const os = require('node:os')
-const path = require('node:path')
-const { spawnSync } = require('node:child_process')
-const {
+import { test, beforeEach, afterEach } from 'node:test'
+import assert from 'node:assert'
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
+import { spawnSync } from 'node:child_process'
+import {
   routeDns,
   verifyDomain,
   startDaemon,
@@ -13,8 +12,10 @@ const {
   daemonStatus,
   applyMap,
   resolveCredentials
-} = require('../lib/cloudflared')
-const { init, add, paths } = require('../lib/state')
+} from '../lib/cloudflared.js'
+import { init, add, paths } from '../lib/state.js'
+
+import dns from 'node:dns'
 
 // Fake cloudflared: logs every invocation to $FAKE_LOG; `tunnel run` stays
 // alive so daemon lifecycle (pid, SIGTERM) can be exercised without the real
@@ -197,8 +198,6 @@ test('extra: credentials resolution returns null when nothing can be found', () 
   fs.mkdirSync(cfHome)
   assert.strictEqual(resolveCredentials('sandbox', cfHome), null)
 })
-
-const dns = require('node:dns')
 
 function dnsError (code) {
   const err = new Error(code)
