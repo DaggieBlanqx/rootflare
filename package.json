@@ -19,7 +19,8 @@
     "prepare": "npm run build",
     "test": "node --test 'test/*.test.js'",
     "test:integration": "node --test 'test/integration/*.test.js'",
-    "lint": "standard --fix | snazzy && knip"
+    "lint": "standard --fix | snazzy && knip",
+    "prepublishOnly": "npm run lint && npm test"
   },
   "keywords": [
     "cloudflare",
@@ -28,7 +29,11 @@
     "reverse-tunnel",
     "localhost",
     "ngrok",
-    "cli"
+    "cli",
+    "dev-tunnel",
+    "ngrok-alternative",
+    "expose-localhost",
+    "https"
   ],
   "license": "MIT",
   "repository": {
@@ -50,5 +55,9 @@
   "dependencies": {
     "pino": "10.3.1"
   },
-  "type": "module"
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/daggieblanqx/rootflare/issues"
+  },
+  "packageManager": "pnpm@11.7.0"
 }
