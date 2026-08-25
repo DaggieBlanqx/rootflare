@@ -1,6 +1,6 @@
 # rootflare
 
-![rootflare banner](banner.svg)
+![rootflare banner](public/banner.svg)
 
 **Your localhost, live on your own domain. Free. Forever.**
 
