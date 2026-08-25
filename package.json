@@ -1,6 +1,6 @@
 {
   "name": "rootflare",
-  "version": "1.0.0-rc3",
+  "version": "1.0.0",
   "description": "Map 1+N domains to local ports through a single Cloudflare Tunnel",
   "bin": {
     "rootflare": "dist/rootflare.js"
