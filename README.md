@@ -21,6 +21,18 @@ That's it: rootflare installs `cloudflared` if needed, creates the tunnel, route
 DNS, starts the daemon, and confirms the domain is live. `start` is idempotent — re-run
 it anytime to make sure the domain is still mapped and running.
 
+## Prerequisites
+
+- **Node ≥ 18.**
+- **A Cloudflare account with your own domain.** Your domain's zone must be added to
+  Cloudflare and use Cloudflare's nameservers — that's how Cloudflare verifies you own
+  it. Tunnels serve *your* domains: there are no throwaway URLs like some tunnel services.
+- **Logged in to Cloudflare** — `cloudflared tunnel login` once (it opens your browser).
+  If you skip it, `start` pauses and prompts you.
+- **`cloudflared`** — `rootflare install` handles this, and `start` installs it
+  automatically if it's missing.
+- **Your app running locally** on the port you map (e.g. `localhost:3000`).
+
 ## Commands
 
 | Command | What it does |
